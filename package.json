@@ -53,10 +53,5 @@
   },
   "engines": {
     "node": ">=8"
-  },
-  "babel": {
-    "presets": [
-      "babel-preset-react-app"
-    ]
   }
 }
