@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -16,7 +15,7 @@ module.exports = {
   },
   devServer: {
     stats: "minimal",
-    overlay: "true",
+    overlay: true,
     historyApiFallback: true,
     disableHostCheck: true,
     headers: { "Access-Control-Allow-Origin": "*" },
