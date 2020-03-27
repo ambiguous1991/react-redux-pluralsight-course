@@ -1,4 +1,4 @@
-import { BEGIN_API_CALL } from '../actions/actionTypes';
+import { API_CALL_ERROR, BEGIN_API_CALL } from '../actions/actionTypes';
 import initialState from './initialState';
 
 function actionTypeEndsInSuccess(type) {
@@ -11,7 +11,10 @@ export default function apiStatusReducer(
 ) {
     if (action.type === BEGIN_API_CALL) {
         return ++state;
-    } else if (actionTypeEndsInSuccess(action.type)) {
+    } else if (
+        action.type === API_CALL_ERROR ||
+        actionTypeEndsInSuccess(action.type)
+    ) {
         return --state;
     }
     return state;
