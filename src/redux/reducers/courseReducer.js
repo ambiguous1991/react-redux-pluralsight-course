@@ -1,11 +1,20 @@
-import { CREATE_COURSE, LOAD_COURSES_SUCCESS } from '../actions/actionTypes';
+import {
+    CREATE_COURSE_SUCCESS,
+    LOAD_COURSES_SUCCESS,
+    UPDATE_COURSE_SUCCESS,
+} from '../actions/actionTypes';
 import initialState from './initialState';
 
 export default function courseReducer(state = initialState.courses, action) {
-    if (action.type === CREATE_COURSE) {
-        return [...state, { ...action.course }];
-    } else if (action.type === LOAD_COURSES_SUCCESS) {
-        return action.courses;
+    switch (action.type) {
+        case CREATE_COURSE_SUCCESS:
+            return [...state, { ...action.course }];
+        case UPDATE_COURSE_SUCCESS:
+            return state.map(course =>
+                course.id === action.course.id ? action.course : course
+            );
+        case LOAD_COURSES_SUCCESS:
+            return action.courses;
     }
     return state;
 }
