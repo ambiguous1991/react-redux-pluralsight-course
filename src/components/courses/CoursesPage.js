@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as authorActions from '../../redux/actions/authorActions';
 import * as courseActions from '../../redux/actions/courseActions';
+import Spinner from '../common/Spinner';
 import CourseList from './CourseList';
 
 class CoursesPage extends Component {
@@ -34,7 +35,7 @@ class CoursesPage extends Component {
                     <Redirect to="/course" />
                 )}
                 <h2>Courses</h2>
-
+                <Spinner />
                 <button
                     style={{ marginBottom: 20 }}
                     className="btn btn-primary add-course"
