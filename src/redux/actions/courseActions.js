@@ -4,6 +4,7 @@ import {
     LOAD_COURSES_SUCCESS,
     UPDATE_COURSE_SUCCESS,
 } from './actionTypes';
+import { beginApiCall } from './apiStatusActions';
 
 export function loadCoursesSuccess(courses) {
     return { type: LOAD_COURSES_SUCCESS, courses };
@@ -19,6 +20,7 @@ export function createCourseSuccess(course) {
 
 export function loadCourses() {
     return dispatch => {
+        dispatch(beginApiCall());
         return courseAPI
             .getCourses()
             .then(courses => {
@@ -32,6 +34,7 @@ export function loadCourses() {
 
 export function saveCourse(course) {
     return dispatch => {
+        dispatch(beginApiCall());
         return courseAPI
             .saveCourse(course)
             .then(savedCourse => {
