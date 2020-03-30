@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ManageCoursePage from './courses/ManageCoursePage';
+import { default as ManageCoursePage } from './courses/ManageCoursePage';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
 import Header from './common/Header';
